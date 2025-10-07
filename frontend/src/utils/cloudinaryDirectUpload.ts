@@ -133,7 +133,7 @@ class CloudinaryDirectUploadService {
 
   // Get Cloudinary signature from backend
   private async getCloudinarySignature(): Promise<CloudinarySignature> {
-    const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:4000/api'}/movies/upload/video/signature`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:4000/api'}/movies/upload/video/signature`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

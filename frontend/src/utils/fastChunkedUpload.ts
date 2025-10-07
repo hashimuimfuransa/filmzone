@@ -118,7 +118,7 @@ class FastChunkedUploadService {
 
   // Initialize upload session
   private async initializeUpload(filename: string, fileSize: number, totalChunks: number): Promise<string> {
-    const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:4000/api'}/movies/upload/video/init`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:4000/api'}/movies/upload/video/init`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -176,7 +176,7 @@ class FastChunkedUploadService {
           controller.abort();
         }, this.timeout);
         
-        const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:4000/api'}/movies/upload/video/chunk`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:4000/api'}/movies/upload/video/chunk`, {
           method: 'POST',
           body: formData,
           headers: {
@@ -215,7 +215,7 @@ class FastChunkedUploadService {
 
   // Finalize the upload
   private async finalizeUpload(uploadId: string): Promise<any> {
-    const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:4000/api'}/movies/upload/video/finalize`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:4000/api'}/movies/upload/video/finalize`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

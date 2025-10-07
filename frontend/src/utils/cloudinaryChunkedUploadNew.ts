@@ -180,7 +180,7 @@ class CloudinaryChunkedUploadService {
       });
 
       // Configure request
-      xhr.open('POST', `${process.env.REACT_APP_API_URL || 'http://localhost:4000/api'}/movies/upload/video`);
+      xhr.open('POST', `${import.meta.env.VITE_API_URL || 'http://localhost:4000/api'}/movies/upload/video`);
       xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem('token')}`);
       
       // Set timeout to 15 minutes for large files

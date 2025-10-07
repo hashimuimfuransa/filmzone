@@ -48,7 +48,7 @@ class CloudinaryChunkedUploadService {
       formData.append('video', file);
 
       // Upload via your backend which has Cloudinary configured
-      const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:4000/api'}/movies/upload/video`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:4000/api'}/movies/upload/video`, {
         method: 'POST',
         body: formData,
         headers: {

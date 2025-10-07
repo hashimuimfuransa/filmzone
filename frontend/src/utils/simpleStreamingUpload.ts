@@ -96,7 +96,7 @@ class SimpleStreamingUploadService {
 
         // Configure request
         xhr.timeout = this.timeout;
-        xhr.open('POST', `${process.env.REACT_APP_API_URL || 'http://localhost:4000/api'}/movies/upload/video/stream`);
+        xhr.open('POST', `${import.meta.env.VITE_API_URL || 'http://localhost:4000/api'}/movies/upload/video/stream`);
         
         // Add authorization header
         const token = localStorage.getItem('token');

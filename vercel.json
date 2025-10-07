@@ -1,15 +1,12 @@
 {
   "version": 2,
-  "buildCommand": "chmod +x build.sh && ./build.sh",
+  "buildCommand": "cd frontend && npm ci && npm run build",
   "outputDirectory": "frontend/build",
   "installCommand": "cd frontend && npm ci",
-  "framework": "create-react-app",
+  "framework": "vite",
   "env": {
-    "REACT_APP_API_URL": "https://filmzone-backend.onrender.com/api",
-    "REACT_APP_CLOUDINARY_CLOUD_NAME": "your-cloudinary-cloud-name",
-    "GENERATE_SOURCEMAP": "false",
-    "CI": "false",
-    "NODE_ENV": "production",
-    "PUBLIC_URL": "/"
+    "VITE_API_URL": "https://filmzone-backend.onrender.com/api",
+    "VITE_CLOUDINARY_CLOUD_NAME": "your-cloudinary-cloud-name",
+    "NODE_ENV": "production"
   }
 }

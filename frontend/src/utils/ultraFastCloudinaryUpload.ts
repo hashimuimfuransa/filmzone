@@ -58,7 +58,7 @@ class UltraFastCloudinaryUploadService {
 
   // Get Cloudinary preset from backend
   private async getCloudinaryPreset(): Promise<CloudinaryPreset> {
-    const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:4000/api'}/movies/upload/video/preset`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:4000/api'}/movies/upload/video/preset`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
