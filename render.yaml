@@ -6,6 +6,7 @@ services:
     nodeVersion: 18
     buildCommand: npm ci --legacy-peer-deps && npm run build
     staticPublishPath: ./build
+    pullRequestPreviewsEnabled: false
     envVars:
       - key: REACT_APP_API_URL
         value: https://filmzone-backend.onrender.com/api
@@ -15,6 +16,8 @@ services:
         value: false
       - key: CI
         value: false
+      - key: PUBLIC_URL
+        value: /
 
   - type: web
     name: filmzone-backend
