@@ -3,19 +3,21 @@ services:
     name: filmzone-frontend
     env: static
     rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: build
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./build
     envVars:
       - key: REACT_APP_API_URL
-        value: https://your-backend-service.onrender.com/api
+        value: https://filmzone-backend.onrender.com/api
       - key: REACT_APP_CLOUDINARY_CLOUD_NAME
         value: your-cloudinary-cloud-name
+      - key: GENERATE_SOURCEMAP
+        value: false
 
   - type: web
     name: filmzone-backend
     env: node
     rootDir: backend
-    buildCommand: npm install
+    buildCommand: npm ci
     startCommand: npm start
     envVars:
       - key: NODE_ENV
@@ -26,3 +28,9 @@ services:
         value: your-super-secret-jwt-key-change-this-in-production
       - key: PORT
         value: 4000
+      - key: CLOUDINARY_CLOUD_NAME
+        value: your-cloudinary-cloud-name
+      - key: CLOUDINARY_API_KEY
+        value: your-cloudinary-api-key
+      - key: CLOUDINARY_API_SECRET
+        value: your-cloudinary-api-secret
