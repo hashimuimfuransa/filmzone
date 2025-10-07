@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: filmzone-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://your-backend-service.onrender.com/api
+      - key: REACT_APP_CLOUDINARY_CLOUD_NAME
+        value: your-cloudinary-cloud-name
+
+  - type: web
+    name: filmzone-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        value: mongodb+srv://username:password@cluster.mongodb.net/filmzone
+      - key: JWT_SECRET
+        value: your-super-secret-jwt-key-change-this-in-production
+      - key: PORT
+        value: 4000

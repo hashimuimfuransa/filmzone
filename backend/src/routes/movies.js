@@ -400,6 +400,7 @@ router.post('/upload/video/stream', authenticateToken, requireAdmin, async (req,
 
       try {
         console.log(`Streaming upload received: ${req.file.originalname} (${req.file.size} bytes)`);
+        console.log('Starting Cloudinary upload...');
         
         // Upload to Cloudinary using file stream (not memory)
         const cloudinary = require('cloudinary').v2;
@@ -410,6 +411,8 @@ router.post('/upload/video/stream', authenticateToken, requireAdmin, async (req,
           use_filename: true,
           unique_filename: true,
         });
+        
+        console.log('Cloudinary upload completed successfully');
         
         // Clean up temporary file
         fs.unlinkSync(req.file.path);
