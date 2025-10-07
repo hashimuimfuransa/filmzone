@@ -3,7 +3,7 @@ services:
     name: filmzone-frontend
     env: static
     rootDir: frontend
-    buildCommand: npm ci && npm run build
+    buildCommand: npm ci --legacy-peer-deps && npm run build
     staticPublishPath: ./build
     envVars:
       - key: REACT_APP_API_URL
