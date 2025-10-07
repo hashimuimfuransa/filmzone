@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "cd frontend && npm ci && npm run build",
+  "buildCommand": "npm ci && npm run build",
   "outputDirectory": "frontend/build",
-  "installCommand": "cd frontend && npm ci",
+  "installCommand": "npm ci",
   "framework": "create-react-app",
   "env": {
     "REACT_APP_API_URL": "https://filmzone-backend.onrender.com/api",
