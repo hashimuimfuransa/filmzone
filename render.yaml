@@ -3,6 +3,7 @@ services:
     name: filmzone-frontend
     env: static
     rootDir: frontend
+    nodeVersion: 18
     buildCommand: npm ci --legacy-peer-deps && npm run build
     staticPublishPath: ./build
     envVars:
@@ -11,6 +12,8 @@ services:
       - key: REACT_APP_CLOUDINARY_CLOUD_NAME
         value: your-cloudinary-cloud-name
       - key: GENERATE_SOURCEMAP
+        value: false
+      - key: CI
         value: false
 
   - type: web
