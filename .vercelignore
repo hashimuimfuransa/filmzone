@@ -102,3 +102,6 @@ docker-compose.yml
 
 # Render configuration (since we're using Vercel now)
 render.yaml
+
+# Debug scripts
+debug-build.sh

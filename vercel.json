@@ -21,7 +21,5 @@
     "GENERATE_SOURCEMAP": "false",
     "CI": "false",
     "NODE_ENV": "production"
-  },
-  "buildCommand": "cd frontend && npm ci && npm run build",
-  "installCommand": "cd frontend && npm ci"
+  }
 }
