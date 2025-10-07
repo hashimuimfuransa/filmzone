@@ -14,6 +14,10 @@
       "dest": "/frontend/build/$1"
     },
     {
+      "src": "/filmzonelogo.png",
+      "dest": "/frontend/build/filmzonelogo.png"
+    },
+    {
       "src": "/(.*)",
       "dest": "/frontend/build/index.html"
     }

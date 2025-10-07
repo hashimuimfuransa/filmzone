@@ -9,6 +9,7 @@ export default defineConfig({
     outDir: 'build',
     sourcemap: false,
     assetsDir: 'assets',
+    copyPublicDir: true,
     rollupOptions: {
       output: {
         manualChunks: {

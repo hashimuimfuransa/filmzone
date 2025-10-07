@@ -206,6 +206,15 @@ const Navbar: React.FC = () => {
                 transition: 'transform 0.2s ease, filter 0.2s ease',
               }}
               onClick={() => navigate('/')}
+              onError={(e) => {
+                // Fallback: try different paths if the logo fails to load
+                const target = e.target as HTMLImageElement;
+                if (target.src.includes('/filmzonelogo.png')) {
+                  target.src = './filmzonelogo.png';
+                } else if (target.src.includes('./filmzonelogo.png')) {
+                  target.src = 'filmzonelogo.png';
+                }
+              }}
             />
 
             {/* Desktop Navigation */}
