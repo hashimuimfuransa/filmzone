@@ -40,9 +40,6 @@ import { useAuth } from '../contexts/AuthContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import LocationIndicator from './LocationIndicator';
 
-// Import logo as a module to ensure proper bundling
-import logoImage from '/filmzonelogo.png';
-
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -195,7 +192,7 @@ const Navbar: React.FC = () => {
             {/* Logo */}
             <Box
               component="img"
-              src={logoImage}
+              src="/filmzonelogo.png"
               alt="FilmZone Logo"
               sx={{
                 cursor: 'pointer',
@@ -209,6 +206,18 @@ const Navbar: React.FC = () => {
                 transition: 'transform 0.2s ease, filter 0.2s ease',
               }}
               onClick={() => navigate('/')}
+              onError={(e) => {
+                // Fallback: try different paths if the logo fails to load
+                const target = e.target as HTMLImageElement;
+                const currentSrc = target.src;
+                if (currentSrc.includes('/filmzonelogo.png')) {
+                  target.src = './filmzonelogo.png';
+                } else if (currentSrc.includes('./filmzonelogo.png')) {
+                  target.src = 'filmzonelogo.png';
+                } else if (currentSrc.includes('filmzonelogo.png')) {
+                  target.src = '/filmzonelogo.png';
+                }
+              }}
             />
 
             {/* Desktop Navigation */}
