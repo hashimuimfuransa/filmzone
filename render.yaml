@@ -4,20 +4,16 @@ services:
     env: static
     rootDir: frontend
     nodeVersion: 18
-    buildCommand: npm ci --legacy-peer-deps && npm run build
+    buildCommand: npm ci && npm run build
     staticPublishPath: ./build
     pullRequestPreviewsEnabled: false
     envVars:
-      - key: REACT_APP_API_URL
+      - key: VITE_API_URL
         value: https://filmzone-backend.onrender.com/api
-      - key: REACT_APP_CLOUDINARY_CLOUD_NAME
+      - key: VITE_CLOUDINARY_CLOUD_NAME
         value: your-cloudinary-cloud-name
-      - key: GENERATE_SOURCEMAP
-        value: false
-      - key: CI
-        value: false
-      - key: PUBLIC_URL
-        value: /
+      - key: NODE_ENV
+        value: production
 
   - type: web
     name: filmzone-backend

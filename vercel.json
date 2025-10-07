@@ -4,6 +4,20 @@
   "outputDirectory": "frontend/build",
   "installCommand": "cd frontend && npm ci",
   "framework": "vite",
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/frontend/build/assets/$1"
+    },
+    {
+      "src": "/(.*\\.(ico|png|jpg|jpeg|gif|svg|webp|json|txt))",
+      "dest": "/frontend/build/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/build/index.html"
+    }
+  ],
   "env": {
     "VITE_API_URL": "https://filmzone-backend.onrender.com/api",
     "VITE_CLOUDINARY_CLOUD_NAME": "your-cloudinary-cloud-name",
